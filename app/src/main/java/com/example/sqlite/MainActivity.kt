@@ -44,20 +44,25 @@ class MainActivity : AppCompatActivity() {
         if (edtID.text.toString()!="") {
             display("Нельзя так делать","При добавлении данных не нужно задавать ID")
         }
-        if(name=="" || email=="") {
-            display("Нельзя так делать","При добавлении данных нужно задавать значения для полей Имя и E-mail ")
-        }
         else {
-
-            val insertData: Boolean = peopleDB!!.addData(name, email)
-            if (insertData) {
-                Toast.makeText(this@MainActivity, "Запись добавлена!", Toast.LENGTH_LONG).show()
+            if (name == "" || email == "") {
+                display(
+                    "Нельзя так делать",
+                    "При добавлении данных нужно задавать значения для полей Имя и E-mail "
+                )
             } else {
-                Toast.makeText(this@MainActivity, "Что-то пошло не так", Toast.LENGTH_LONG).show()
+
+                val insertData: Boolean = peopleDB!!.addData(name, email)
+                if (insertData) {
+                    Toast.makeText(this@MainActivity, "Запись добавлена!", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@MainActivity, "Что-то пошло не так", Toast.LENGTH_LONG)
+                        .show()
+                }
             }
         }
     }
-    
+
     private fun showUsers() {
         val data:Cursor?=peopleDB!!.showData()
 
