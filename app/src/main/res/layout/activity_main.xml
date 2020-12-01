@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <EditText
+        android:id="@+id/edtID"
+        style="@style/EditText"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="ID"
+        />
+
+    <EditText
+        android:id="@+id/edtName"
+        style="@style/EditText"
+        app:layout_constraintTop_toBottomOf="@id/edtID"
+        android:hint="Имя"
+        />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        style="@style/EditText"
+        app:layout_constraintTop_toBottomOf="@id/edtName"
+        android:inputType="textEmailAddress"
+        android:hint="E-mail" />
+
+    <LinearLayout
+        android:id="@+id/line1"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        style="@style/LinerLayout">
+    <Button
+        android:id="@+id/btnAdd"
+        style="@style/Button"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        android:text="Создать запись"/>
+
+    <Button
+        android:id="@+id/btnShow"
+        style="@style/Button"
+        app:layout_constraintTop_toBottomOf="@id/btnAdd"
+        android:text="Посмотреть запись"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        style="@style/LinerLayout">
+
+    <Button
+        android:id="@+id/btnRemove"
+        style="@style/Button"
+        app:layout_constraintTop_toBottomOf="@id/line1"
+        android:text="Удалить запись"/>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        style="@style/Button"
+        app:layout_constraintTop_toBottomOf="@id/btnRemove"
+        android:text="Обновить запись"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnBring"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/line2"
+        android:layout_margin="5dp"
+        android:text="Вывести данные в поля"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
